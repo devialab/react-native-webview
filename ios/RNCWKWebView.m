@@ -322,7 +322,7 @@ static NSString *const MessageHanderName = @"ReactNative";
     [event addEntriesFromDictionary: @{
       @"url": (request.URL).absoluteString,
       @"navigationType": navigationTypes[@(navigationType)],
-      @"isMainFrame": navigationAction.targetFrame?.isMainFrame
+      @"targetFrame": navigationAction.targetFrame.isMainFrame ? @"mainFrame": @"other"
     }];
     if (![self.delegate webView:self
       shouldStartLoadForRequest:event
